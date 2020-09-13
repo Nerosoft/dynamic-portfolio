@@ -8,7 +8,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PortfolioServices {
-  IP = 'https://us-central1-nero-soft.cloudfunctions.net/abdo/'
+  IP = ''
   constructor(public http: HttpClient) {
   }
 
