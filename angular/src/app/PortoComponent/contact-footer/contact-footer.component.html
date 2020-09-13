@@ -1,0 +1,87 @@
+<app-toasts></app-toasts>
+  <div id="contact" class="containt" data-aos="fade-down" data-aos-delay="150">
+    <div class="text-center">
+      <div class="head">
+        <h3>
+          <span class="square-bracket">&lt;</span>
+          <span class="">{{title}} </span>
+          <span class="square-bracket">/&gt;</span>
+        </h3>
+      </div>
+      <!-- <div data-aos="fade-up" data-aos-delay="150" class="container-fluid pt-5"> -->
+      <div class="container-fluid pt-5">
+        <div class="row">
+          <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-5 mx-auto">
+            <form id="contact-form">
+              <div class="form-row">
+                <div class="form-group col-xl-6">
+                  <input type="email" name="email" class="form-control" id="inputEmail" [ngClass]="{'error':stemail}" [(ngModel)]="email"
+                    placeholder="Email" data-parsley-trigger="input" required=""
+                    data-parsley-error-message="Poprawny format: example@gmail.com">
+                </div>
+                <div class="form-group col-xl-6">
+                  <input type="phone" name="phone" class="form-control" id="inputPhone" [ngClass]="{'error':stphone}" [(ngModel)]="phone"
+                    placeholder="Phone" data-parsley-trigger="input" data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$"
+                    data-parsley-error-message="Wpisz poprawny numer telefonu">
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="contents" id="inputContents" placeholder="Message" [ngClass]="{'error':stmes}"  [(ngModel)]="mes"
+                  rows="7" data-parsley-minlength="10" data-parsley-maxlength="500" data-parsley-trigger="input"
+                  required="" data-parsley-error-message="required. 10-500"></textarea>
+              </div>
+              <div class="row justify-content-end submit-button">
+                <button type="button" (click)='sendMessage()' class="btn btn-primary" value="validate">
+                  <span class="">Send</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id="footer">
+    <div class="row text-center">
+      <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
+        <div class="row pb-3">
+          <div class="col-12 col-sm-12">
+            &copy; NerO-SofT, 2020
+          </div>
+        </div>
+        <div class="row pt-2">
+          <div class="col-12 col-sm-12 mx-auto">
+            <!-- <a href="javascript:void(0)" class="i18n-button-pl">اللغة العربية</a> -->
+            <a  class="i18n-button-pl">NerO-SofT</a>
+            <span> | </span>
+            <a href="javascript:void(0)" class="i18n-button-en">english version</a>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-12 col-sm-12 mx-auto">
+            <a *ngFor='let link of urls; index as i'
+            [ngClass]='{"hidestate":link.state}'
+            href="{{link.action}}" 
+            target="_blank">
+              {{link.name.replace(link.name[0], link.name[0].toUpperCase())}}
+              <i class="icon"
+              [ngClass]='{"icon-facebook-official":link.name=="facebook","icon-youtube-play":link.name=="youtube","icon-github-circled":link.name=="github"}'></i>
+            </a>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <a href="#about-me" class="go-up">
+        <i class="icon-angle-double-up"></i>
+      </a>
+    </div>
+
+  </div>
+
+

@@ -1,0 +1,37 @@
+<div id="experience">
+    <div class="container containt text-center" data-aos="fade-down" data-aos-delay="100">
+        <div class="head">
+            <h3>
+                <span class="square-bracket">&lt;</span>
+                <span>{{title}}</span>
+                <span class="square-bracket">/&gt;</span>
+            </h3>
+        </div>
+        <div class="container-fluid pt-5">
+            <div class="row">
+                <div class="col-12 col-sm-11 col-xl-8 mx-auto">
+                    <ul class="timeline text-left">
+                        <li *ngFor ='let expe of experience; index as i'
+                        [ngClass]='{"timeline-inverted":(i+1)%2==1}'>
+                            <div class="timeline-badge"></div>
+                            <div class="timeline-panel" data-aos="fade-left" data-aos-delay="150">
+                              <p>{{expe.experiences.date}}</p>
+                              <p>
+                                <span class="timeline-job">{{expe.experiences.job}}</span>
+                                <span > at {{expe.experiences.at}}</span>
+                              </p>
+                              <div class="job-desc" *ngFor='let desc of expe.experienceDis'>
+                                <i class="icon icon-circle"></i>
+                                <span >{{desc.name}}</span>
+                                <br>
+                              </div>
+                            </div>
+                        </li>
+    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

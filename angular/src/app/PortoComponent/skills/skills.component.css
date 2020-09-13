@@ -1,0 +1,27 @@
+#skills{
+    width: 100%;
+    color: white;
+}
+
+
+
+.level3{
+    color: orange
+}
+.level2{
+    color: #ffce73
+}
+
+.level1{
+    color: #fff0d4
+}
+
+
+.jarallax {
+    background: url('../../../assets/images/keyboard.jpg') no-repeat  fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: 300px;
+    margin-top: 80px;
+  }
+

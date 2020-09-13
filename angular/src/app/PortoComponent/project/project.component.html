@@ -1,0 +1,64 @@
+
+<div id="projects">
+  <section *ngIf='(!navLi[3].state)'>
+    <div class="jarallaxke">
+    </div>
+    
+
+
+    <div class="text-center containt">
+      <div data-aos="fade-down" class="head" data-aos-delay="100">
+        <h3>
+          <span class="square-bracket">&lt;</span>
+          <span>{{navLi[3].name}}</span>
+          <span class="square-bracket">/&gt;</span>
+        </h3>
+      </div>
+      <div class="container-fluid pt-5" data-aos="fade-up" data-aos-delay="150">
+        <div class="row">
+          <div class="col-12 col-sm-10 col-lg-11 col-xl-8 mx-auto">
+            <div class="pb-5 button-group filters-button-group" data-aos="fade-down" data-aos-delay="150">
+              <button class="btn btn-primary mp active" data-filter="*">
+                <span>all</span>
+              </button>
+              <button *ngFor='let but of buttons' class="btn btn-primary mp-1 ml-1"
+                [attr.data-filter]='"."+but.key'>{{but.name}}</button>
+            </div>
+            <div class="grid">
+              <div *ngFor='let proj of projects;index as i' [ngClass]='{"hidestate":proj.state}'
+                class="card element-item {{proj.key}}">
+                <img class="card-img-top"  (error)="updateUrlProject($event,i)" src="{{proj.img}}">
+                <div class="card-body ">
+                  <h4 class="card-title">{{proj.proj}}</h4>
+                  <p class="card-text">{{proj.title}}</p>
+
+                </div>
+                <div class="card-footer">
+
+                  <a *ngIf='proj.site.state' target="_blank" rel="noopener" href="{{proj.site.action}}"
+                    class="btn btn-primary ml-2">site</a>
+
+                  <a *ngIf='proj.github.state' target="_blank" rel="noopener" href="{{proj.github.action}}"
+                    class="btn btn-primary ml-2">Github</a>
+
+                  <a *ngIf='proj.youtube.state' target="_blank" rel="noopener" href="{{proj.youtube.action}}"
+                    class="btn btn-primary ml-2">youtube</a>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jarallax">
+    </div>
+  </section>
+
+  <app-contact-footer 
+ [title]='navLi[4].name' [username]='username' *ngIf='(!navLi[4].state)' [urls]='urls'></app-contact-footer>
+
+
+</div>

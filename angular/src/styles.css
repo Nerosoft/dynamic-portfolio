@@ -1,0 +1,133 @@
+h1,h2,h3,h4,h5,span,div,a{
+  font-family: 'Merienda', cursive;
+}
+body{
+  background-color: #343a40;
+  height: 100vh;
+}
+#scrollbar{
+    background-color: #343a40;
+}
+#scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px !important;
+  }
+  
+  #scrollbar::-webkit-scrollbar {
+    width: 14px !important;
+  }
+  
+  #scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px !important;
+    background-color: #6c757d !important;
+  }
+  
+.hidestate{
+  visibility: hidden;
+  display: none;
+}
+
+.hidnav{
+  display: none;
+}
+
+
+
+
+
+  .progloade{
+    display: none;
+    height: 3px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    z-index: 9999999;
+    margin: 0;
+}
+
+
+
+
+
+
+
+.containt{
+  padding-top: 80px;
+}
+
+
+.head h3{
+  font-size: 26px;
+  letter-spacing: 5px;
+}
+.square-bracket{
+  font-size: 20px;
+  color: orange;
+
+}
+.head h3 span:first-child{
+  margin-right: 11px;
+}
+.head h3 span:last-child{
+  margin-left: 11px;
+}
+
+
+.error{
+  color: #000;
+  /* background-color: #ddffff; */
+  border: .7px solid #a94442;
+  animation: bounceIn  calc(1s * 0.75);;
+}
+
+.error_photo{
+  color: #000;
+  border: 3px solid #bd2130 !important;
+  animation: bounceIn  calc(1s * 0.75);;
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}

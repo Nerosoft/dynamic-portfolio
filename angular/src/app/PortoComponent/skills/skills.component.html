@@ -1,0 +1,45 @@
+<div id="skills">
+    <div class="container containt text-center" data-aos="fade-down" data-aos-delay="100">
+        <div class="head">
+            <h3>
+                <span class="square-bracket">&lt;</span>
+                <span>{{title}}</span>
+                <span class="square-bracket">/&gt;</span>
+            </h3>
+            <p>
+                <span style="color: orange">*</span>
+                <span>color according to the frequency of usage</span>
+            </p>
+        </div>
+        <div class="row pt-5">
+            <div class="col-12 col-sm-10 col-xl-10 mx-auto">
+                <div class="row pt-1" *ngFor='let skills of realSkills; index as i' data-aos="fade-right"
+                    data-aos-delay="150">
+                    
+                    <div class="col-sm-6" *ngFor='let skillx of skills; index as i'
+                        [ngClass]="{'col-sm-12 col-xl-12':(skills.length == 1)}">
+                        <h4>{{skillx[0] }}</h4>
+                        <p>
+                            <span *ngFor='let skillz of skillx[1] ;index as i' class="{{skillz.level}}">{{skillz.name}}
+                            </span>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 
+ <div class="section-1">
+        <div class="section-container-1">
+            <img class="section-img" src="../../../assets/images/keyboard.jpg" />
+        </div>
+        
+    </div> -->
+    <div class="jarallax">
+    </div>
+
+</div>

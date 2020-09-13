@@ -1,0 +1,527 @@
+<ng-template #dangerTpl>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 24 24">
+    <path
+      d="M10.872 6.831l1.695 3.904 3.654-1.561-1.79 3.426 3.333.954-3.417 1.338 2.231 4.196-4.773-2.582-2.869 2.287.413-3.004-3.792-.726 2.93-1.74-1.885-2.512 3.427.646.843-4.626zm-.786-6.831l-1.665 9.119-6.512-1.228 3.639 4.851-5.548 3.294 7.108 1.361-.834 6.076 5.742-4.577 9.438 5.104-4.288-8.064 6.834-2.677-6.661-1.907 3.25-6.22-6.98 2.982-3.523-8.114z" />
+  </svg>
+
+</ng-template>
+
+<app-toasts></app-toasts>
+<div id="signin">
+  <div id="scene">
+    <div class="back_ground" data-depth="0.4">
+      <img class="back_signin" src="../../../assets/images/back_signin.jpg" />
+
+      <div class="anim">
+        <div class="p-1-top">
+          <img class="" src="../../../assets/images/next.svg" />
+        </div>
+        <div class="p-2-top">
+          <img class="" src="../../../assets/images/next.svg" />
+        </div>
+        <div class="p-3-top">
+          <img class="" src="../../../assets/images/next.svg" />
+        </div>
+        <div class="p-4-top">
+          <img class="" src="../../../assets/images/next.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="main" class="container h-100 body">
+
+
+
+    <div class="d-flex justify-content-center h-100 containt-sign">
+
+      <div class="steps">
+        <ul>
+          <li [ngClass]='{"active":stpes[0]}'>
+            <span>1</span>
+            Personal Info
+          </li>
+          <li [ngClass]='{"active":stpes[1]}'>
+            <span>2</span>
+            Experience
+          </li>
+          <li [ngClass]='{"active":stpes[2]}'>
+            <span>3</span>
+            Your Works
+          </li>
+        </ul>
+      </div>
+
+      <div id="scrollbar" class="animated card"
+        [ngClass]='{"onupload":onUpload,"zoomInDown":anim[0],"flipInY":anim[1] ,"wobble":anim[2] ,"flipInX":anim[3],"slideInUp":anim[4],"jello":anim[5],"rubberBand":anim[6] ,"tada":anim[7]}'>
+
+        <div class="formdef" *ngIf="forms[0]">
+          <div class="card-title">
+            <h2>About Me Jop</h2>
+          </div>
+
+          <div class="card-body">
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">NameID</span>
+              </div>
+              <input type="text" class="form-control" [ngClass]="{'error':stNameId}" [(ngModel)]="signInUser.nameId"
+                aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div *ngFor='let jop of signInUser.Jops;index as i' class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Jop</span>
+              </div>
+              <input type="text" class="form-control" [ngClass]="{'error':stJops[i]}" [(ngModel)]="jop.name"
+                placeholder="{{jop.name}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)='plus(1)' type="button">plus</button>
+                <button *ngIf='(signInUser.Jops.length - i)==1 && i>0' class="btn btn-outline-secondary minus"
+                  (click)='minus(1)' type="button">minus</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-button">
+            <button type="button" (click)="next(0)" class="btn btn-outline-info">Next</button>
+          </div>
+        </div>
+
+        <div class="form1" *ngIf="forms[1]">
+          <div class="card-title">
+            <h2>About Me Portfolio</h2>
+          </div>
+
+          <div class="card-body">
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+              </div>
+              <input type="text" class="form-control" [ngClass]="{'error':stname}" [(ngModel)]="signInUser.name"
+                aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
+              </div>
+              <input type="password" class="form-control" [ngClass]="{'error':stpassword}"
+                [(ngModel)]="signInUser.password" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div *ngFor='let portfolio of signInUser.portfolios;index as i' class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">portfolio</span>
+              </div>
+              <input type="text" class="form-control" [ngClass]="{'error':stportfolios[i]}" [(ngModel)]="portfolio.name"
+                placeholder="{{portfolio.name}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)='plus(2)' type="button">plus</button>
+                <button *ngIf='(signInUser.portfolios.length - i)==1 && i>0' class="btn btn-outline-secondary minus"
+                  (click)='minus(2)' type="button">minus</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-button">
+            <button type="button" (click)="back(1)" class="btn btn-outline-danger">back</button>
+            <button type="button" (click)="next(1)" class="btn btn-outline-info">Next</button>
+          </div>
+        </div>
+
+        <div class="form2" *ngIf="forms[2]">
+          <div class="card-title">
+            <h2>About Me Pucture</h2>
+          </div>
+
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">option</span>
+              </div>
+              <div class="custom-file" [ngClass]="{'error':stpicture}">
+                <input type="file" name="avatar" accept="image/x-png,image/jpeg" onclick="event.target.value = ''"
+                  (change)='onSetImgAbout(5,$event)' class="custom-file-input" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">{{signInUser.picture.label}}</label>
+              </div>
+            </div>
+            <div *ngFor='let loveSkill of signInUser.loveSkills;index as i' [ngClass]="{'error':stloveSkills[i]}"
+              class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">skill</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" (change)='onSetImgAbout(i,$event)' onclick="event.target.value = ''"
+                  accept="image/svg+xml" class="custom-file-input" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">{{loveSkill.label}}</label>
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)='plus(3)' type="button">+</button>
+                <button *ngIf='(signInUser.loveSkills.length - i)==1 && i>0' class="btn btn-outline-secondary minus"
+                  (click)='minus(3)' type="button">-</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-button">
+            <button type="button" (click)="back(2)" class="btn btn-outline-danger">back</button>
+            <button type="button" (click)="next(2)" class="btn btn-outline-info">Next</button>
+          </div>
+        </div>
+
+        <div class="form3" *ngIf="forms[3]">
+          <div class="card-title">
+            <h2>setup navbar</h2>
+          </div>
+
+          <div class="card-body">
+            <div *ngFor='let navLink of signInUser.navLinks;index as i' class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">link</span>
+              </div>
+              <input type="text" class="form-control" [ngClass]="{'error':stnavLinks[i]}" [(ngModel)]="navLink.name"
+                placeholder="{{navLink.name}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+          </div>
+
+          <div class="card-button">
+            <button type="button" (click)="back(3)" class="btn btn-outline-danger">back</button>
+            <button type="button" (click)="next(3)" class="btn btn-outline-info">Next</button>
+          </div>
+        </div>
+
+        <div class="form4" *ngIf="forms[4]">
+          <div class="card-title">
+            <h2>{{signInUser.navLinks[1].name}}</h2>
+          </div>
+
+          <div class="card-body">
+            <div *ngFor='let nameSkill of signInUser.nameSkills;index as i' class="input-group mb-3">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+                </div>
+                <input type="text" class="form-control" [ngClass]="{'error':stnameSkills[i]}"
+                  [(ngModel)]="nameSkill.name">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)='plus(5)' type="button">+</button>
+                  <button *ngIf='(signInUser.nameSkills.length - i)==1 && i>0' class="btn btn-outline-secondary minus"
+                    (click)='minus(5)'>-</button>
+                </div>
+              </div>
+
+              <div *ngFor='let skill of signInUser.skills[i];index as ii' class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">skill</span>
+                </div>
+                <input type="text" class="form-control" [ngClass]="{'error':isNull(stskills[i])?false:stskills[i][ii]}"
+                  [(ngModel)]="skill.name">
+                <div class="input-group-append">
+
+                  <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                    <button class="btn btn-outline-secondary" ngbDropdownToggle>{{skill.level}}</button>
+                    <div class="dropdown-menu" ngbDropdownMenu>
+                      <button ngbDropdownItem (click)='setLevel(i,ii,1)'>level1</button>
+                      <button ngbDropdownItem (click)='setLevel(i,ii,2)'>level2</button>
+                      <button ngbDropdownItem (click)='setLevel(i,ii,3)'>level3</button>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-outline-secondary" (click)='plusSkill(i)' type="button">+</button>
+                  <button *ngIf='(signInUser.skills[i].length - ii)==1 && ii>0' (click)='minusSkill(i)'
+                    class="btn btn-outline-secondary minus" type="button">-</button>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="card-button">
+              <button type="button" (click)="back(4)" class="btn btn-outline-danger">back</button>
+              <button type="button" (click)="next(4)" class="btn btn-outline-info">Next</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form5" *ngIf="forms[5]">
+          <div class="card-title">
+            <h2>{{signInUser.navLinks[2].name}}</h2>
+          </div>
+
+          <div class="card-body">
+            <div *ngFor='let exp of signInUser.experiences;index as i' class="input-group mb-3">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
+                </div>
+                <input type="text" class="form-control"
+                  [ngClass]="{'error':isNull(stexperiences[i])?false:stexperiences[i].date}" [(ngModel)]="exp.date">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)='plus(6)' type="button">+</button>
+                  <button *ngIf='(signInUser.experiences.length - i)==1 && i>0' class="btn btn-outline-secondary minus"
+                    (click)='minus(6)'>-</button>
+                </div>
+                <div class="input-group input-group-sm mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">job</span>
+                  </div>
+                  <input type="text" class="form-control"
+                    [ngClass]="{'error':isNull(stexperiences[i])?false:stexperiences[i].job}" [(ngModel)]="exp.job">
+                </div>
+                <div class="input-group input-group-sm mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">at</span>
+                  </div>
+                  <input type="text" class="form-control"
+                    [ngClass]="{'error':isNull(stexperiences[i])?false:stexperiences[i].at}" [(ngModel)]="exp.at">
+                </div>
+              </div>
+
+              <div *ngFor='let dis of signInUser.experienceDis[i];index as ii' class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">skill</span>
+                </div>
+                <input type="text" class="form-control"
+                  [ngClass]="{'error':isNull(stexperienceDis[i])?false:stexperienceDis[i][ii]}" [(ngModel)]="dis.name">
+                <div class="input-group-append">
+
+
+                  <button class="btn btn-outline-secondary" (click)='plusExp(i)' type="button">+</button>
+                  <button *ngIf='(signInUser.experienceDis[i].length - ii)==1 && ii>0' (click)='minusExp(i)'
+                    class="btn btn-outline-secondary minus" type="button">-</button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-button">
+              <button type="button" (click)="back(5)" class="btn btn-outline-danger">back</button>
+              <button type="button" (click)="next(5)" class="btn btn-outline-info">Next</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="animated form6" *ngIf="forms[6]" [ngClass]="{'bounceIn':projectState,'bounceInUp':!projectState}">
+          <div class="card-title">
+            <h2>{{signInUser.navLinks[3].name}}</h2>
+
+          </div>
+
+          <div class="card-body">
+            <div class="buttons" *ngIf='!projectState'>
+              <div *ngFor='let button of signInUser.projectButton;index as i' class="input-group mb-3">
+                <div class="input-group input-group-sm mb-1">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">button</span>
+                  </div>
+                  <input type="text" class="form-control"
+                    [ngClass]="{'error':isNull(stprojectButton[i])?false:stprojectButton[i].name}"
+                    [(ngModel)]="button.name">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">key</span>
+                  </div>
+                  <input type="text" class="form-control"
+                    [ngClass]="{'error':isNull(stprojectButton[i])?false:stprojectButton[i].key}"
+                    [(ngModel)]="button.key">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)='plus(7)' type="button">+</button>
+                    <button *ngIf='(signInUser.projectButton.length - i)==1 && i>0'
+                      class="btn btn-outline-secondary minus" (click)='minus(7)'>-</button>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+
+            <div class="projects" *ngIf='projectState'>
+
+              <div *ngFor='let proj of signInUser.projects;index as i' class="input-group mb-3">
+                <div class="img_proj">
+                  <input id="myInput{{i}}" (change)='onOkyDialogProj(i,$event)' type="file"
+                    accept="image/x-png,image/jpeg" onclick="event.target.value = ''"
+                    style="visibility:hidden;width: 0;height: 0;" />
+                  <img src="{{projImag[i]}}" [ngClass]="{'error_photo':isNull(stproject[i])?false:stproject[i].file}"
+                    (click)="setProjImg(i)" />
+                </div>
+                <div class="input-group input-group-sm mb-1 mt-3">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">name</span>
+                  </div>
+                  <input type="text" class="form-control"
+                    [ngClass]="{'error':isNull(stproject[i])?false:stproject[i].proj}" [(ngModel)]="proj.proj">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)='plus(8)' type="button">+</button>
+                    <button *ngIf='(signInUser.projects.length - i)==1 && i>0' class="btn btn-outline-secondary minus"
+                      (click)='minus(8)'>-</button>
+                  </div>
+
+                </div>
+
+                <div class="input-group input-group-sm mb-1">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">title</span>
+                  </div>
+                  <input type="text" class="form-control"
+                    [ngClass]="{'error':isNull(stproject[i])?false:stproject[i].title}" [(ngModel)]="proj.title">
+                </div>
+
+
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Key</span>
+                  </div>
+                  <input type="text" class="form-control" disabled
+                    [ngClass]="{'error':isNull(stproject[i])?false:stproject[i].key}" [(ngModel)]="proj.key">
+                  <div class="input-group-append">
+
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                      <button class="btn btn-outline-secondary" ngbDropdownToggle>Key</button>
+                      <div class="dropdown-menu" ngbDropdownMenu>
+                        <button *ngFor='let keys of signInUser.projectButton;index as ii' ngbDropdownItem
+                          (click)='setKey(i,ii)'>{{keys.key}}</button>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+                <section class="sotial">
+                  <div class="input-group  mb-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">site</span>
+                    </div>
+                    <input type="text" class="form-control"
+                      [ngClass]="{'error':isNull(stproject[i])?false:stproject[i].site}" [(ngModel)]="proj.site.action">
+                    <form [formGroup]="radioGroupForm" class="">
+                      <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
+                        <label ngbButtonLabel class="btn-primary btn-switch">
+                          <input ngbButton (click)="setSotialState(i,true,'site')" type="radio"
+                            [value]="proj.site.state"> ON
+                        </label>
+                        <label ngbButtonLabel class="btn-primary btn-switch">
+                          <input ngbButton (click)="setSotialState(i,false,'site')" type="radio"
+                            [value]="(!proj.site.state)"> OFF
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">github</span>
+                    </div>
+                    <input type="text" class="form-control"
+                      [ngClass]="{'error':isNull(stproject[i])?false:stproject[i].github}"
+                      [(ngModel)]="proj.github.action">
+                    <form [formGroup]="radioGroupForm" class="">
+                      <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
+                        <label ngbButtonLabel (click)="setSotialState(i,true,'github')" class="btn-primary btn-switch">
+                          <input ngbButton type="radio" [value]="proj.github.state"> ON
+                        </label>
+                        <label ngbButtonLabel class="btn-primary btn-switch">
+                          <input ngbButton (click)="setSotialState(i,false,'github')" type="radio"
+                            [value]="(!proj.github.state)"> OFF
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="input-group  mb-1">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">youtube</span>
+                    </div>
+                    <input type="text" class="form-control"
+                      [ngClass]="{'error':isNull(stproject[i])?false:stproject[i].youtube}"
+                      [(ngModel)]="proj.youtube.action">
+                    <form [formGroup]="radioGroupForm" class="">
+                      <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
+                        <label ngbButtonLabel class="btn-primary btn-switch">
+                          <input ngbButton (click)="setSotialState(i,true,'youtube')" type="radio"
+                            [value]="proj.youtube.state"> ON
+                        </label>
+                        <label ngbButtonLabel class="btn-primary btn-switch">
+                          <input ngbButton (click)="setSotialState(i,false,'youtube')" type="radio"
+                            [value]="(!proj.youtube.state)"> OFF
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+
+            <div class="card-button">
+              <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class=" mr-2" role="group" aria-label="First group">
+                  <i class="icon-edit btn btn-outline-warning" (click)='goProject()'></i>
+
+                </div>
+                <div class="mr-2 Second" role="group" aria-label="Second group">
+                  <button type="button" (click)="back(6)" class="btn btn-outline-danger">back</button>
+                  <button type="button" (click)="next(6)" class="btn btn-outline-info">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form7" *ngIf="forms[7] && (!onUpload)">
+          <div class="card-title">
+            <h2>{{signInUser.navLinks[4].name}}</h2>
+          </div>
+
+          <div class="card-body">
+
+            <div class="input-group input-group-sm mb-1 mt-3" [ngClass]="{'error':stmy_cv[i]}"
+              *ngFor='let optin of signInUser.cvOption;index as i'>
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">{{optin.label}}</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" (change)='setCv(i,$event)' 
+                accept="{{i===0?'image/x-png,image/jpeg':'application/pdf'}}" onclick="event.target.value = ''"
+                class="custom-file-input" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">{{optin.my_cv}}</label>
+              </div>
+            </div>
+            <section class="sotial  mt-3">
+              <div class="input-group  mb-1" *ngFor='let link of signInUser.urls; index as i'>
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">{{link.name}}</span>
+                </div>
+                <input type="text" class="form-control"  [ngClass]="{'error':stsotial[i]}" [(ngModel)]="link.action">
+                <form [formGroup]="radioGroupForm" class="">
+                  <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
+                    <label ngbButtonLabel class="btn-primary btn-switch">
+                      <input ngbButton (click)="setFooterSotial(true,i)" type="radio" [value]="link.state"> ON
+                    </label>
+                    <label ngbButtonLabel class="btn-primary btn-switch">
+                      <input ngbButton (click)="setFooterSotial(false,i)" type="radio" [value]="(!link.state)"> OFF
+                    </label>
+                  </div>
+                </form>
+              </div>
+
+            </section>
+          </div>
+
+          <div class="card-button">
+            <button type="button" (click)="back(7)" class="btn btn-outline-danger">back</button>
+            <button type="button" (click)="upload(8)" class="btn btn-outline-info">Finsh</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

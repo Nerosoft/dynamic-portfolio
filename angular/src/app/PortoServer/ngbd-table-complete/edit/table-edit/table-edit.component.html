@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">what?</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+        (click)="modalN.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
+<div class="modal-body">
+    <div class="myinfotable">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th [ngClass]="{'hidekey':item.key=='key'}" *ngFor="let item of model | keyvalue" scope="col">
+                        {{item.key}}</th>
+
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr>
+                    <th [ngClass]="{'hidekey':item.key=='key'}" class="info" *ngFor="let item of model | keyvalue">
+                        <div *ngIf='form=="mes"'>
+                            <textarea class="form-control" readonly name="contents" id="inputContents" placeholder=""
+                                value="{{item.value}}" disabled rows="2" data-parsley-minlength="10"
+                                data-parsley-maxlength="500" data-parsley-trigger="input" required=""
+                                data-parsley-error-message="required. 10-500"></textarea>
+                        </div>
+                        <div *ngIf='form=="login"'>
+                            <input type="text" class="form-control" required readonly value="{{item.value}}"
+                                type="text">
+                        </div>
+
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modalN.dismiss('cancel click')">Cancel</button>
+</div>

@@ -1,0 +1,131 @@
+#contact{
+    width: 100%;
+    color: white;
+    padding-bottom: 80px;
+}
+
+#contact .submit-button {
+    padding-right: 15px;
+  }
+
+#contact .head h3{
+    font-size: 26px;
+    letter-spacing: 5px;
+}
+#contact .square-bracket{
+    font-size: 20px;
+    color: orange;
+
+}
+  #contact .btn {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  #contact .parsley-success {
+    background-color: #DFF0D8;
+  }
+  
+  #contact .parsley-errors-list {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  
+  #contact .parsley-errors-list li {
+    margin-top: 5px;
+    padding: 3px 0px 5px 0px;
+    background-color: var(--my-orange);
+    color: var(--my-black);
+    border-radius: 4px;
+  }
+  
+  .vibrate-1 {
+    animation: vibrate-1 0.3s linear infinite both;
+  }
+  
+  @keyframes vibrate-1 {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+
+
+#contact .btn-primary:hover{
+    background-color: orange!important;
+    border-color: orange!important;
+    color:#331!important;
+  }
+  #contact .btn-primary {
+    background-color: gray;
+    border-color:gray;
+    color: white;
+    border-radius: 5px!important;
+    letter-spacing: 1px;
+  }
+  
+
+
+
+
+
+
+  #footer {
+    background-color: #222929;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  
+  #footer a {
+    color: white;
+  }
+  
+  #footer a:hover {
+    color: orange !important;
+    text-decoration: none;
+  }
+  
+  #footer .icon {
+    font-size: 32px;
+    margin-right: 18px;
+    position: relative;
+    top: 3px;
+  }
+  
+  #footer .wrapper {
+    position: absolute;
+    width: 100%;
+  }
+  
+  #footer .go-up {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    color: orange !important;
+  }
+  
+  #footer .hovered {
+    color: orange;
+  }
+  

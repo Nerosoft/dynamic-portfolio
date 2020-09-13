@@ -1,0 +1,73 @@
+<div id="about-me">
+  <div class="parallax-container">
+    <div id="scene">
+      <div data-depth="0.4">
+        <img class="parallax-background" src="../../../assets/images/parallax-background.jpg" />
+      </div>
+      <div class="parallax parallax-right" data-depth="0.3">
+        <div class="love_skill" *ngFor='let love_skile of love_skills;index as i'>
+          <img class="parallax-skill-svg rust" *ngIf='!love_skile.state'
+          (error)="updateUrlLoveSkill($event,i)"
+           src="{{love_skile.url}}">
+        </div>
+
+      </div>
+      <div data-depth="0.2">
+        <img class="parallax-ground" src="../../../assets/images/parallax-ground.png" />
+      </div>
+      <div class="parallax parallax-left" data-depth="0.1">
+        <img class="parallax-me" *ngIf='!my_photo.state'
+        src="{{my_photo.url}}" />
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <div class="row">
+      <div class="col-2 col-sm-2 col-lg-4 col-xl-6">
+      </div>
+      <div class="col-10 col-sm-10 col-lg-7 col-xl-5 text-left">
+        <div class="text-scramble text-left pb-3"
+        >
+          <span class="blinker">__ </span>
+          <span class="textScramble"></span>
+        </div>
+        <div data-aos="fade-left">
+          <p *ngFor="let porto of portfolio">
+            <span>{{porto.name}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="col-1 col-sm-1 col-lg-1 col-xl-1" data-aos="fade-left">
+      </div>
+    </div>
+  </div>
+
+  <div>
+
+    <!-- <ul class="bu-cv go-down-fake-container-cv">  
+      <li>
+        <a href="#" id="my-cv">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="">CV</span>
+        </a> 
+      </li>
+      </ul> -->
+
+
+    <a class="bu-chev" (click)='goSkills()' role="button">
+      <div class="go-down-fake-container">
+
+      </div>
+      <div class="go-down">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+      </div>
+    </a>
+
+  </div>
+</div>

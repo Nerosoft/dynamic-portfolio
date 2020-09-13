@@ -1,0 +1,33 @@
+.navbar-collapse{
+    width: 100%;
+    margin-left: 31%;
+}
+
+.nav-link:hover{
+    color: hsla(0,0%,100%,.75);
+    cursor: pointer;
+}
+.navbar{
+    box-shadow: 0 3px 3px rgba(0,0,0,.5);
+    background-color: #222929;
+}
+
+.navbar-brand{
+    cursor: pointer;
+    width: 0%;
+}
+.active{
+    color: orange!important;
+}
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/* .nav-link:visited{
+    color: orange!important;
+    text-decoration: none;
+  }
+   */
