@@ -54,9 +54,9 @@
 
 
 # Explain dynamic crazy portfolio (youtube)
-* ## [youtube](https://www.youtube.com/watch?v=CCwVykr9SR4&list=PLpAujTRyjgcEQT0q6qde7StorE3SybG6H&index=7)
+* ## [youtube](https://www.youtube.com/watch?v=BxPHKWMqGzk&list=PLpAujTRyjgcEQT0q6qde7StorE3SybG6H&index=9)
 
 
 
 # Dynamic crazy portfolio (youtube)
-* ## [youtube](https://www.youtube.com/watch?v=CCwVykr9SR4&list=PLpAujTRyjgcEQT0q6qde7StorE3SybG6H&index=7)
+* ## [youtube](https://www.youtube.com/watch?v=BxPHKWMqGzk&list=PLpAujTRyjgcEQT0q6qde7StorE3SybG6H&index=9&ab_channel=coursesonline)
