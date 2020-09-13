@@ -1,8 +1,8 @@
 # dynamic-portfolio
-free and open source dynamic crazy portfolio arabic ,
-update your information real time,
-dynamic crazy portfolio make you create another portfolio real time for your purposes
-Angular , Node JS , Firebase
+1. free and open source dynamic crazy portfolio arabic ,
+1. update your information real time,
+1. dynamic crazy portfolio make you create another portfolio real time for your purposes
+1. Angular , Node JS , Firebase
 
 ### رابط الموقع
 * ## [Portofolio Site](https://nero-soft.firebaseapp.com/portfolio/Abdullah)
