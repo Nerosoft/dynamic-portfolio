@@ -35,11 +35,11 @@ function sort(countries: Country[], column: SortColumn, direction: string): Coun
   }
 }
 
-function matches(country, term: string, pipe: PipeTransform) {
-  //console.log("offf",country)
-  let newMessage:any=Object.values(country)
+function matches(itemRow, term: string, pipe: PipeTransform) {
+  let newMessage:any=Object.values(itemRow)
+//  console.log("offf",newMessage)
   return newMessage[0].toLowerCase().includes(term.toLowerCase())
-     || (newMessage[2]).includes(term)
+    // || newMessage[1].toLowerCase().includes(term.toLowerCase())
     // || pipe.transform(country.population).includes(term);
 }
 
@@ -72,6 +72,7 @@ export class CountryService {
       return infoValue
   }
   setup(info){
+    if(info==null) return
     this.info=this.setKeyToInfo(Object.keys(info),Object.values(info)).reverse()
    
 

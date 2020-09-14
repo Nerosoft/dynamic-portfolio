@@ -16,13 +16,13 @@ export class DisplayComponent implements OnInit {
   @ViewChild(NavbarComponent, { static: false }) nv: NavbarComponent;
   mainPortfolio = {}
 
-  phrases = [{ name: 'Abdullah' },{ name: 'Software developer' },
-  { name: 'Web designer' },{name:" Mobile apps creator"}]
-  portfolio = [{name:"Hello,i have 25 year,you will find here a short summary of my skills, tools used by me, selected projects and the course of my education and career."},
-  {name:"some project has a link to GitHub where you will find a detailed description and source code."},
-  {name:"In technical high school and college I had contact with C, C ++, JavaScript, HTML, CSS, programming of microcontrollers and PLC controllers. Later working for three years as a Electrical Design Engineer. I entered the world of Java, OOP and I got infected with it so much that I decided to change my profession."},
-  {name:"Currently I professionally use mainly technologies related to the programming language, and in my free time I dig in Web development - technologies related to Typescript and node js."},
-  {name:"I'm trying to touch many programming languages and technologies and keep up with the latest updates from the IT world."}]
+  phrases = [{ name: 'Abdullah' }, { name: 'Software developer' },
+  { name: 'Web designer' }, { name: " Mobile apps creator" }]
+  portfolio = [{ name: "Hello,i have 25 year,you will find here a short summary of my skills, tools used by me, selected projects and the course of my education and career." },
+  { name: "some project has a link to GitHub where you will find a detailed description and source code." },
+  { name: "In technical high school and college I had contact with C, C ++, JavaScript, HTML, CSS, programming of microcontrollers and PLC controllers. Later working for three years as a Electrical Design Engineer. I entered the world of Java, OOP and I got infected with it so much that I decided to change my profession." },
+  { name: "Currently I professionally use mainly technologies related to the programming language, and in my free time I dig in Web development - technologies related to Typescript and node js." },
+  { name: "I'm trying to touch many programming languages and technologies and keep up with the latest updates from the IT world." }]
   my_photo = { name: "", url: "../../../assets/images/parallax-me.png", state: false }
   love_skills: any = [
     { name: "", url: "../../../assets/images/rust.svg", state: false },
@@ -312,7 +312,7 @@ export class DisplayComponent implements OnInit {
 
 
   getUserInformation(username) {
-     this.userServes.getUsersList().snapshotChanges().pipe(
+    this.userServes.getUsersList().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
           ({ key: c.payload.key, ...c.payload.val() })
@@ -403,7 +403,6 @@ export class DisplayComponent implements OnInit {
     this.ProjectMonstry.init()//---------
     // }, 3000);
 
-    this.ProjectMonstry.init()
     this.buttons = user.projects[0]
     this.urls = user.urls
 

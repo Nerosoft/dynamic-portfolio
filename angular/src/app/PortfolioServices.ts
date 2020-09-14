@@ -8,7 +8,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PortfolioServices {
-  IP = 'ip function'// Get And Post 
+  IP = 'api functions'
   constructor(public http: HttpClient) {
   }
 

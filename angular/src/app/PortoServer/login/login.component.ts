@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   getUserInformation(username, password, dangerTpl) {
-    this.userServes.getUsersLogin().subscribe(users => {
+    let login =this.userServes.getUsersLogin().subscribe(users => {
 
 
       Object.values(users).forEach((user: any) => {
@@ -35,8 +35,10 @@ export class LoginComponent implements OnInit {
         }
       })
  
-      if (this.LOGINSTATE)
+      if (this.LOGINSTATE){
         this.toastService.show('sucssesful Login', { classname: 'bg-success text-light', delay: 10000 });
+        login.unsubscribe()
+      }
       else
         this.toastService.show(dangerTpl, { classname: 'bg-danger text-light', delay: 15000 });
     })
